@@ -1,0 +1,11 @@
+dist
+.npminstall
+.yarninstall
+node_modules
+*.swp
+.idea
+*.tar.gz
+.DS_Store
+*.iml
+.idea
+package-lock.json

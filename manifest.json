@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "author": "Scott Davis",
+    "name": "Mattermost Demo Extension",
+    "description": "Demo extension showing how to connect to a Mattermost user using OAuth2.",
+    "icons": {
+        "32": "/public/img/icon.png",
+        "128": "/public/img/icon.png"
+    },
+    "permissions": ["identity", "storage"],
+    "browser_action": {
+        "default_icon": "/public/img/icon.png",
+        "default_title": "Mattermost Demo Extension",
+        "default_popup": "dist/main.html"
+    }
+}
