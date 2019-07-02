@@ -1,7 +1,7 @@
 {
-  "name": "mattermost-chrome-extension",
+  "name": "mattermost-firefox-extension",
   "version": "0.0.1",
-  "description": "Mattermost demo Chrome extension.",
+  "description": "Mattermost demo Firefox extension.",
   "files": [
     "*.md",
     "es",
@@ -12,12 +12,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattermost/mattermost-chrome-extension"
+    "url": "https://github.com/scottleedavis/mattermost-firefox-extension"
   },
-  "homepage": "https://github.com/mattermost/mattermost-chrome-extension",
+  "homepage": "https://github.com/scottleedavis/mattermost-firefox-extension",
   "keywords": [
     "mattermost",
-    "chrome",
+    "firefox",
     "extension"
   ],
   "dependencies": {
