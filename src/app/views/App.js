@@ -29,8 +29,11 @@ export default class App extends React.Component {
 
     // Try to load the access token from storage and fetch the user if we have it.
     loadToken = () => {
+        console.log('loadToken');
         browser.storage.sync.get(['access_token'], (result) => {
+            console.log(result);
             if (result.access_token) {
+                console.log('found access token');
                 this.getUser(result.access_token);
             }
         });
@@ -50,7 +53,9 @@ export default class App extends React.Component {
 
     // Called when the OAuth flow is complete, parsing the state and access token out of the URL fragment and storing it.
     completeLogin = (responseUrl) => {
+        console.log("completeLogin");
         const state = getParameterByName('state', responseUrl);
+        console.log(state);
 
         // The OAuth state must match per https://tools.ietf.org/html/rfc6749#section-10.12
         if (state !== this.oauthState) {
@@ -59,15 +64,18 @@ export default class App extends React.Component {
         }
 
         const accessToken = getParameterByName('access_token', responseUrl);
+        console.log("access_token "+accessToken);
         browser.storage.sync.set({access_token: accessToken});
     }
 
     // Demo use of the access token to get the logged in user.
     getUser = async (accessToken) => {
+        console.log(window.location.href);
         Client4.setToken(accessToken);
         Client4.setIncludeCookies(false);
         try {
             const user = await Client4.getMe();
+            console.log(user);
             this.setState({user});
         } catch (error) {
             console.error(error);
@@ -76,8 +84,11 @@ export default class App extends React.Component {
     }
 
     render() {
+        console.log("render")
         let content;
         if (this.state.user) {
+            console.log("user")
+
             const user = this.state.user;
              content = (
                   <div>
@@ -86,6 +97,8 @@ export default class App extends React.Component {
                   </div>
              );
         } else {
+            console.log("not logged in")
+
             content = (
                 <button
                     onClick={this.handleLogin}
